@@ -4,7 +4,7 @@ namespace MadHub;
 
 public static class ApplicationData
 {
-    private static string PersistentDataPathFolder => Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+    private static string PersistentDataPathFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MadHub");
 
     public static string PersistentDataPath
     {
