@@ -12,7 +12,7 @@
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="32" 
                       ResizeBorderThickness="6" 
-                      CornerRadius="16" 
+                      CornerRadius="0" 
                       GlassFrameThickness="0"/>
     </WindowChrome.WindowChrome>
     
@@ -71,12 +71,12 @@
             
             <Border Grid.Column="0" Background="#262626" BorderBrush="#3F3F46" BorderThickness="0,0,1,0">
                 <StackPanel Margin="15,30,15,15">
-                    <TextBlock Text="MAD ENGINE HUB" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,40"/>
+                    <TextBlock Text="Welcome!" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" Foreground="#F8F8F8" Margin="4,0,0,40"/>
                     
                     <RadioButton Style="{StaticResource SidebarNavStyle}" IsChecked="True" Command="{Binding ShowProjectsCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Path Data="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z" 
-                                  Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" 
+                                  Fill="#999999" 
                                   Width="14" Height="14" Margin="4,0,12,0" Stretch="Uniform"/>
                             <TextBlock Text="Projects" VerticalAlignment="Center" FontSize="13"/>
                         </StackPanel>
@@ -85,16 +85,16 @@
                     <RadioButton Style="{StaticResource SidebarNavStyle}" Command="{Binding ShowInstallsCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Path Data="M4,4H20V20H4V4M6,6V18H18V6H6M8,8H16V10H8V8M8,12H16V14H8V12Z" 
-                                  Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" 
+                                  Fill="#999999" 
                                   Width="14" Height="14" Margin="4,0,12,0" Stretch="Uniform"/>
-                        <TextBlock Text="Installs / Tools" VerticalAlignment="Center" FontSize="13"/>
+                        <TextBlock Text="Installs" VerticalAlignment="Center" FontSize="13"/>
                     </StackPanel>
                 </RadioButton>
                     
                     <RadioButton Style="{StaticResource SidebarNavStyle}" Command="{Binding ShowDocsCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Path Data="M12,3L1,9L12,15L21,10.09V17H23V9L12,3M3.3,9L12,4.25L20.7,9L12,13.75L3.3,9M12,16.5C10.53,16.5 7.42,17.15 6,17.74V19.44C7.42,18.85 10.53,18.2 12,18.2C13.47,18.2 16.58,18.85 18,19.44V17.74C16.58,17.15 13.47,16.5 12,16.5Z" 
-                                  Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" 
+                                  Fill="#999999" 
                                   Width="14" Height="14" Margin="4,0,12,0" Stretch="Uniform"/>
                             <TextBlock Text="Learn / Docs" VerticalAlignment="Center" FontSize="13"/>
                         </StackPanel>

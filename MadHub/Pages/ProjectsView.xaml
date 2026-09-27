@@ -19,8 +19,36 @@
         <Grid Grid.Row="0" Margin="0,0,0,24">
             <TextBlock Text="Projects" FontSize="28" Foreground="White" VerticalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Button Content="Open" Width="80" Height="34" Margin="0,0,12,0" Background="#2D2D2D" Foreground="White" BorderThickness="0" Click="LocateProject_Click"/>
-                <Button Content="New project" Width="110" Height="34" Background="#1F60A5" Foreground="White" BorderThickness="0" FontWeight="SemiBold"/>
+                <Button Content="Open" Width="80" Height="34" Margin="0,0,12,0" Background="#404040" Foreground="White" BorderThickness="0" Click="LocateProject_Click" FontSize="14"/>
+                <Button Content="New project" Width="110" Height="34" Background="#3D77C2" Foreground="White" BorderThickness="0" FontWeight="SemiBold" FontSize="14">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#3D77C2"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="btnBorder" 
+                                                Background="{TemplateBinding Background}"
+                                                CornerRadius="4"
+                                                SnapsToDevicePixels="True">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                        
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="btnBorder" Property="Background" Value="#6493CE"/>
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter TargetName="btnBorder" Property="Background" Value="#31609B"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
         </Grid>
         
