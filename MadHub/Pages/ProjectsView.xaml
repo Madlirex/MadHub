@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="MadHub.ProjectsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Recent Projects" FontSize="24" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Add Existing" Width="100" Height="32" Margin="0,0,10,0" Background="#3E3E42"/>
+                
+                <Button Content="New Project" Width="100" Height="32" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+        
+        <ListBox Background="#2D2D30" BorderThickness="0" Foreground="White">
+            <ListBoxItem Content="MyAwesomeRPG — C:\Users\Dev\Projects\RPG" Padding="10"/>
+            <ListBoxItem Content="SpaceShooter2D — C:\Users\Dev\Projects\Space" Padding="10"/>
+            <ListBoxItem Content="VoxelEngine_Test — C:\Users\Dev\Projects\Voxel" Padding="10"/>
+        </ListBox>
+    </Grid>
+</UserControl>

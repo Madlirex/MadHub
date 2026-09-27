@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="MadHub.DocsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MadHub"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="670">
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="Learning &amp; Documentation" FontSize="24" FontWeight="SemiBold" Foreground="White" Margin="0,0,0,20"/>
+        
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <UniformGrid Columns="2" VerticalAlignment="Top">
+                
+                <Border Background="#2D2D30" CornerRadius="6" Padding="20" Margin="0,0,10,10">
+                    <StackPanel>
+                        <TextBlock Text="Getting Started Guide" FontSize="18" FontWeight="SemiBold" Foreground="White"/>
+                        
+                        <Button Content="Open Docs" HorizontalAlignment="Left" Background="#3E3E42" Width="100"/>
+                    </StackPanel>
+                </Border>
+                
+                <Border Background="#2D2D30" CornerRadius="6" Padding="20" Margin="10,0,0,10">
+                    <StackPanel>
+                        <TextBlock Text="Scripting API Reference" FontSize="18" FontWeight="SemiBold" Foreground="White"/>
+                        <TextBlock Text="Complete database of C# namespaces, life-cycle methods, physics hooks, and math libraries to program gameplay." 
+                                   Foreground="#A0A0A0" TextWrapping="Wrap" Margin="0,8,0,15" LineHeight="18"/>
+                        <Button Content="View API" HorizontalAlignment="Left" Background="#3E3E42" Width="100"/>
+                    </StackPanel>
+                </Border>
+                
+                <Border Background="#2D2D30" CornerRadius="6" Padding="20" Margin="0,10,10,0">
+                    <StackPanel>
+                        <TextBlock Text="Official Video Tutorials" FontSize="18" FontWeight="SemiBold" Foreground="White"/>
+                        <TextBlock Text="Step-by-step video courses covering lighting, procedural generation, sound mechanics, and runtime optimizations." 
+                                   Foreground="#A0A0A0" TextWrapping="Wrap" Margin="0,8,0,15" LineHeight="18"/>
+                        <Button Content="Watch Videos" HorizontalAlignment="Left" Background="#3E3E42" Width="110"/>
+                    </StackPanel>
+                </Border>
+                
+            </UniformGrid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
