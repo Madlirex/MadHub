@@ -12,14 +12,6 @@ public partial class MainWindow : Window
         InitializeComponent();
         DataContext = new MainViewModel();
     }
-    
-    private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-    {
-        if (e.ChangedButton == MouseButton.Left)
-        {
-            DragMove();
-        }
-    }
 
     private void MinimizeButton_Click(object sender, RoutedEventArgs e)
     {

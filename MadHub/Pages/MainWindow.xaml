@@ -9,6 +9,13 @@
         AllowsTransparency="True"
         FontFamily="Segoe UI">
 
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="32" 
+                      ResizeBorderThickness="6" 
+                      CornerRadius="16" 
+                      GlassFrameThickness="0"/>
+    </WindowChrome.WindowChrome>
+    
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:ProjectsViewModel}">
             <local:ProjectsView/>
@@ -27,19 +34,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Grid Grid.Row="0" Background="#111111" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+        <Grid Grid.Row="0" Background="#111111">
             <TextBlock Text="Mad Hub" Foreground="#858585" FontSize="12" Margin="12,0,0,0" VerticalAlignment="Center"/>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Width="46" Height="32" Style="{StaticResource TitleBarButtonStyle}" Click="MinimizeButton_Click">
+                <Button Width="46" Height="32" Style="{StaticResource TitleBarButtonStyle}" Click="MinimizeButton_Click" IsHitTestVisible="True">
                     <Path Data="M0,0 H10" Stroke="#CCCCCC" StrokeThickness="1" Width="10" Height="1" Stretch="None"/>
                 </Button>
                 
-                <Button Width="46" Height="32" Style="{StaticResource TitleBarButtonStyle}" Click="MaximizeButton_Click">
+                <Button Width="46" Height="32" Style="{StaticResource TitleBarButtonStyle}" Click="MaximizeButton_Click" IsHitTestVisible="True">
                     <Path Data="M0,0 H9 V9 H0 Z" Stroke="#FFFFFF" StrokeThickness="1" Width="9" Height="9" Stretch="None" Fill="Transparent"/>
                 </Button>
                 
-                <Button Width="46" Height="32" Style="{StaticResource TitleBarCloseButtonStyle}" Click="CloseButton_Click">
+                <Button Width="46" Height="32" Style="{StaticResource TitleBarCloseButtonStyle}" Click="CloseButton_Click" IsHitTestVisible="True">
                     <Path Data="M0,0 L8,8 M0,8 L8,0" Stroke="#CCCCCC" StrokeThickness="1" Width="8" Height="8" Stretch="None"/>
                 </Button>
             </StackPanel>
@@ -54,7 +61,7 @@
             
             <Border Grid.Column="0" Background="#252526" BorderBrush="#3F3F46" BorderThickness="0,0,1,0">
                 <StackPanel Margin="15,30,15,15">
-                    <TextBlock Text="ENGINE HUB" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,40"/>
+                    <TextBlock Text="MAD ENGINE HUB" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,40"/>
                     
                     <RadioButton Style="{StaticResource SidebarNavStyle}" IsChecked="True" Command="{Binding ShowProjectsCommand}">
                         <StackPanel Orientation="Horizontal">

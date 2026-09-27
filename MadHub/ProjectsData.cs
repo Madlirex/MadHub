@@ -17,7 +17,8 @@ public class ProjectInfo
     public string Company { get; set; } = "DefaultCompany";
     public string Path { get; set; } = string.Empty;
     
-    public string ModifiedDisplay => GetRelativeTime(LastOpened);
+    public string ModifiedAgo => GetRelativeTime(LastOpened);
+    public string Directory => System.IO.Path.GetDirectoryName(Path)!;
 
     private static string GetRelativeTime(DateTime dateTime)
     {
