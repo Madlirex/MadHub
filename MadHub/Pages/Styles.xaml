@@ -51,7 +51,7 @@
                             <Setter TargetName="btnBorder" Property="Background" Value="#2D2D2D"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="btnBorder" Property="Background" Value="#3F3F3F"/>
+                            <Setter TargetName="btnBorder" Property="Background" Value="#404040"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

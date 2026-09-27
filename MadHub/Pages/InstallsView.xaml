@@ -32,7 +32,7 @@
         <ItemsControl Grid.Row="2" ItemsSource="{Binding EditorManifests}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:EditorManifestData}">
-                    <Border Background="#252526" BorderBrush="#2D2D2D" BorderThickness="1" CornerRadius="4" Margin="0,0,0,12" Padding="16,12">
+                    <Border Background="#262626" BorderBrush="#2D2D2D" BorderThickness="1" CornerRadius="4" Margin="0,0,0,12">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -40,116 +40,158 @@
                                 <ColumnDefinition Width="Auto"/> 
                             </Grid.ColumnDefinitions>
                             
-                            <Grid Grid.Column="0" Width="32" Height="32" Margin="0,0,16,0" VerticalAlignment="Top">
-                                <Path Data="M 16,2 L 30,10 L 30,22 L 16,30 L 2,22 L 2,10 Z" Stroke="#8A8A8A" StrokeThickness="1.5" Fill="#2D2D2D"/>
-                                <Path Data="M 16,2 L 16,16 M 16,16 L 30,10 M 16,16 L 2,10 M 16,16 L 16,30" Stroke="#8A8A8A" StrokeThickness="1"/>
-                            </Grid>
+                            <Border Grid.Column="0" Background="#1A1A1A" Padding="16,14" CornerRadius="5,0,0,5">
+                                <Grid Width="32" Height="32" VerticalAlignment="Center">
+                                    <Path Data="M 16,2 L 30,10 L 30,22 L 16,30 L 2,22 L 2,10 Z" Stroke="#8A8A8A" StrokeThickness="1.5" Fill="#1A1A1A"/>
+                                    <Path Data="M 16,2 L 16,16 M 16,16 L 30,10 M 16,16 L 2,10 M 16,16 L 16,30" Stroke="#8A8A8A" StrokeThickness="1"/>
+                                </Grid>
+                            </Border>
                             
-                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Version}" Foreground="White" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center"/>
-                                    
-                                    <Border Margin="8,0,0,0" Background="#3E3E42" CornerRadius="2" Padding="4,1" VerticalAlignment="Center"
-                                            Visibility="{Binding IsLts, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                        <TextBlock Text="LTS" Foreground="#A0A0A0" FontSize="10" FontWeight="Bold"/>
-                                    </Border>
-                                </StackPanel>
-                                
-                                <TextBlock Text="{Binding PathToExecutable}" Foreground="#757575" FontSize="12" Margin="0,4,0,8"/>
-                                
-                                <ItemsControl ItemsSource="{Binding Platforms}">
-                                    <ItemsControl.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <StackPanel Orientation="Horizontal"/>
-                                        </ItemsPanelTemplate>
-                                    </ItemsControl.ItemsPanel>
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border Background="#2D2D30" CornerRadius="10" Padding="10,3" Margin="0,0,6,0">
-                                                <TextBlock Text="{Binding }" Foreground="#969696" FontSize="11"/>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </StackPanel>
-                            
-                            <Button Grid.Column="2" Width="32" Height="32" Background="Transparent" BorderThickness="0" 
-                                    HorizontalAlignment="Right" VerticalAlignment="Top" Click="MenuButton_Click">
-                                <Path Data="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" 
-                                      Fill="#A0A0A0" Stretch="Uniform" Width="14" Height="14"/>
-
-                                <Button.ContextMenu>
-                                    <ContextMenu
-                                        Background="#2D2D30"
-                                        BorderBrush="#3F3F46"
-                                        BorderThickness="1"
-                                        Padding="0">
-
-                                        <ContextMenu.Template>
-                                            <ControlTemplate TargetType="ContextMenu">
-                                                <Border
-                                                    Background="{TemplateBinding Background}"
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                                    SnapsToDevicePixels="True">
-
-                                                    <ItemsPresenter
-                                                        KeyboardNavigation.DirectionalNavigation="Cycle"
-                                                        KeyboardNavigation.TabNavigation="Cycle"/>
+                            <Border Grid.Column="1" Background="#262626" Padding="16,14">
+                                <StackPanel VerticalAlignment="Center">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Version}" Foreground="White" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    
+                                        <Border Margin="8,0,0,0" Background="#3E3E42" CornerRadius="2" Padding="4,1" VerticalAlignment="Center"
+                                                Visibility="{Binding IsLts, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                            <TextBlock Text="LTS" Foreground="#A0A0A0" FontSize="10" FontWeight="Bold"/>
+                                        </Border>
+                                    </StackPanel>
+                
+                                    <TextBlock Text="{Binding PathToExecutable}" Foreground="#757575" FontSize="12" Margin="0,4,0,8"/>
+                
+                                    <ItemsControl ItemsSource="{Binding Platforms}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Background="#2D2D30" CornerRadius="10" Padding="10,3" Margin="0,0,6,0">
+                                                    <TextBlock Text="{Binding }" Foreground="#969696" FontSize="11"/>
                                                 </Border>
-                                            </ControlTemplate>
-                                        </ContextMenu.Template>
-
-                                        <ContextMenu.Resources>
-
-                                            <Style TargetType="MenuItem">
-                                                <Setter Property="Background" Value="#2D2D30"/>
-                                                <Setter Property="Foreground" Value="White"/>
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                                <Setter Property="Padding" Value="14,7"/>
-                                                <Setter Property="Margin" Value="0"/>
-                                                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-
-                                                <Setter Property="Template">
-                                                    <Setter.Value>
-                                                        <ControlTemplate TargetType="MenuItem">
-                                                            <Border
-                                                                x:Name="MenuBorder"
-                                                                Background="{TemplateBinding Background}"
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
+                            
+                            <Border Grid.Column="2" Padding="16,14" CornerRadius="0,5,5,0">
+                                <Button Width="32" Height="32" Background="Transparent" BorderThickness="0" 
+                                        HorizontalAlignment="Center" VerticalAlignment="Top" Click="MenuButton_Click">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border x:Name="btnBorder" 
+                                                                Background="{TemplateBinding Background}" 
+                                                                CornerRadius="4"
                                                                 SnapsToDevicePixels="True">
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="btnBorder" Property="Background" Value="#3C3C3C"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsPressed" Value="True">
+                                                                <Setter TargetName="btnBorder" Property="Background" Value="#171717"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                    <Path Data="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" 
+                                          Fill="#A0A0A0" Stretch="Uniform" Width="14" Height="14"/>
 
-                                                                <ContentPresenter
-                                                                    ContentSource="Header"
-                                                                    Margin="{TemplateBinding Padding}"
-                                                                    HorizontalAlignment="Left"
-                                                                    VerticalAlignment="Center"/>
-                                                            </Border>
+                                    <Button.ContextMenu>
+                                        <ContextMenu
+                                            Background="#333333"
+                                            BorderBrush="#484848"
+                                            BorderThickness="1"
+                                            Padding="6">
 
-                                                            <ControlTemplate.Triggers>
+                                            <ContextMenu.Template>
+                                                <ControlTemplate TargetType="ContextMenu">
+                                                    <Border
+                                                        Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        SnapsToDevicePixels="True"
+                                                        CornerRadius="4"
+                                                        Padding="{TemplateBinding Padding}">
 
-                                                                <Trigger Property="IsHighlighted" Value="True">
-                                                                    <Setter
-                                                                        TargetName="MenuBorder"
-                                                                        Property="Background"
-                                                                        Value="#3E3E42"/>
-                                                                </Trigger>
+                                                        <ItemsPresenter
+                                                            KeyboardNavigation.DirectionalNavigation="Cycle"
+                                                            KeyboardNavigation.TabNavigation="Cycle"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </ContextMenu.Template>
 
-                                                            </ControlTemplate.Triggers>
-                                                        </ControlTemplate>
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </Style>
+                                            <ContextMenu.Resources>
 
-                                        </ContextMenu.Resources>
+                                                <Style TargetType="MenuItem">
+                                                    <Setter Property="Background" Value="#333333"/>
+                                                    <Setter Property="Foreground" Value="White"/>
+                                                    <Setter Property="BorderThickness" Value="1"/>
+                                                    <Setter Property="BorderBrush" Value="#333333"></Setter>
+                                                    <Setter Property="Padding" Value="14,7"/>
+                                                    <Setter Property="Margin" Value="0"/>
+                                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                                    <Setter Property="FontSize" Value="12"></Setter>
 
-                                        <MenuItem Header="Open in file explorer" Click="OpenInExplorer_Click"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="MenuItem">
+                                                                <Border
+                                                                    x:Name="MenuBorder"
+                                                                    Background="{TemplateBinding Background}"
+                                                                    SnapsToDevicePixels="True"
+                                                                    CornerRadius="4">
 
-                                        <MenuItem Header="Remove" Foreground="#FF5555" Click="RemoveInstall_Click"/>
+                                                                    <ContentPresenter
+                                                                        ContentSource="Header"
+                                                                        Margin="{TemplateBinding Padding}"
+                                                                        HorizontalAlignment="Left"
+                                                                        VerticalAlignment="Center"/>
+                                                                </Border>
 
-                                    </ContextMenu>
-                                </Button.ContextMenu>
-                            </Button>
+                                                                <ControlTemplate.Triggers>
 
+                                                                    <Trigger Property="IsHighlighted" Value="True">
+                                                                        <Setter
+                                                                            TargetName="MenuBorder"
+                                                                            Property="Background"
+                                                                            Value="#3D77C2"/>
+                                                                    </Trigger>
+                                                                    
+                                                                    <Trigger Property="IsPressed" Value="True">
+                                                                        <Setter
+                                                                            TargetName="MenuBorder"
+                                                                            Property="Background"
+                                                                            Value="#3493CE"/>
+                                                                    </Trigger>
+
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+
+                                            </ContextMenu.Resources>
+
+                                            <MenuItem Header="Open in file explorer" Click="OpenInExplorer_Click"/>
+
+                                            <MenuItem Header="Remove" Foreground="#FF5555" Click="RemoveInstall_Click"/>
+
+                                        </ContextMenu>
+                                    </Button.ContextMenu>
+                                </Button>
+                            </Border>
                         </Grid>
                     </Border>
                 </DataTemplate>
