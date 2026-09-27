@@ -66,6 +66,7 @@ public static class ProjectInfoManager
     public static void Remove(ProjectInfo info)
     {
         Infos.Remove(info);
+        Save();
     }
     
     public static void Load()
