@@ -34,6 +34,11 @@ public static class EditorManifestDataManager
         Datas.Remove(data);
         Save();
     }
+
+    public static EditorManifestData? GetEditor(Version version)
+    {
+        return Datas.FirstOrDefault(x => x.Version == version);
+    }
     
     public static void Load()
     {

@@ -8,6 +8,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         EditorManifestDataManager.Load();
+        ProjectInfoManager.Load();
         InitializeComponent();
         DataContext = new MainViewModel();
     }

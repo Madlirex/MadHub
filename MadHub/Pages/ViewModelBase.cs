@@ -14,7 +14,10 @@ public class ViewModelBase : INotifyPropertyChanged
 }
 
 
-public class ProjectsViewModel : ViewModelBase { }
+public class ProjectsViewModel : ViewModelBase
+{
+    public ObservableCollection<ProjectInfo> Projects => ProjectInfoManager.Infos;
+}
 
 public class InstallsViewModel : ViewModelBase
 {

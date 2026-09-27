@@ -19,8 +19,7 @@ public partial class InstallsView : UserControl
         {
             Title = "Select Editor Installation Folder",
         };
-
-
+        
         if (folderDialog.ShowDialog() != true) return;
         string selectedPath = folderDialog.FolderName;
         
