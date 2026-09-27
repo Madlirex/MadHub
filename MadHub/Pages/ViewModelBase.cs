@@ -16,22 +16,10 @@ public class ViewModelBase : INotifyPropertyChanged
 
 public class ProjectsViewModel : ViewModelBase { }
 
-public class EditorInstall
-{
-    public string Version { get; set; }
-    public string Path { get; set; }
-    public bool IsLts { get; set; }
-    public List<string> Platforms { get; set; } = new List<string>();
-}
-
 public class InstallsViewModel : ViewModelBase
 {
-    public ObservableCollection<EditorInstall> InstalledVersions { get; set; }
-
-    public InstallsViewModel()
-    {
-        InstalledVersions = [];
-    }
+    public ObservableCollection<EditorManifestData> EditorManifests => EditorManifestDataManager.Datas;
+    
 }
 
 public class DocsViewModel : ViewModelBase { }
