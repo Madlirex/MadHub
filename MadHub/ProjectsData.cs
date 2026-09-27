@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
+using System.Windows;
 
 namespace MadHub;
 
@@ -83,26 +84,28 @@ public static class ProjectInfoManager
 
     public static void OpenProject(ProjectInfo project)
     {
-        if (EditorManifestDataManager.GetEditor(project.EditorVersion) is { } editor)
+        if (EditorManifestDataManager.GetEditor(project.EditorVersion) is not { } editor) return;
+        string? executableDirectory = Path.GetDirectoryName(editor.PathToExecutable);
+        string? projectDirectory = Path.GetDirectoryName(project.Path);
+        Console.WriteLine(executableDirectory);
+        Console.WriteLine(projectDirectory);
+            
+        if (string.IsNullOrEmpty(executableDirectory) || string.IsNullOrEmpty(projectDirectory))
         {
-            string? executableDirectory = Path.GetDirectoryName(editor.PathToExecutable);
-            string? projectDirectory = Path.GetDirectoryName(project.Path);
-            Console.WriteLine(executableDirectory);
-            Console.WriteLine(projectDirectory);
+            throw new InvalidOperationException("Could not resolve executable or project directories.");
+        }
             
-            if (string.IsNullOrEmpty(executableDirectory) || string.IsNullOrEmpty(projectDirectory))
-            {
-                throw new InvalidOperationException("Could not resolve executable or project directories.");
-            }
-            
-            ProcessStartInfo startInfo = new ProcessStartInfo
-            {
-                FileName = editor.PathToExecutable,
-                WorkingDirectory = executableDirectory, 
-                Arguments = projectDirectory
-            };
+        ProcessStartInfo startInfo = new ProcessStartInfo
+        {
+            FileName = editor.PathToExecutable,
+            WorkingDirectory = executableDirectory, 
+            Arguments = projectDirectory
+        };
 
-            Process.Start(startInfo);
+        Process? process = Process.Start(startInfo);
+        if (process != null)
+        {
+            Application.Current.Shutdown();
         }
     }
 
