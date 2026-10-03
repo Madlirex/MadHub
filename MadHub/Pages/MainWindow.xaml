@@ -6,14 +6,14 @@
         WindowStartupLocation="CenterScreen"
         Background="#1A1A1A"
         WindowStyle="None" 
-        AllowsTransparency="True"
+        AllowsTransparency="False"
         FontFamily="Segoe UI">
 
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="32" 
                       ResizeBorderThickness="6" 
                       CornerRadius="0" 
-                      GlassFrameThickness="0"/>
+                      GlassFrameThickness="1"/>
     </WindowChrome.WindowChrome>
     
     <Window.Resources>
